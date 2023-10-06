@@ -24,7 +24,7 @@
     </div>
 
     <div class="header-right-side">
-            <div class="bin-header">
+        <div class="bin-header">
             <a href="/views/bin/bin-index.php">
                 <img class="bin-icon-header" src="../../images/icons/bin-icon.png">
                 <div class="subtext">Kopзинa</div>
@@ -44,26 +44,28 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title">Авторизация</h3>
+                <h3 class="modal-title">Вход в аккаунт</h3>
                 <a href="#close" title="Close" class="close">×</a>
             </div>
             <div class="modal-body">
                 <form class="modal-form" action="../../views/lk/lk-index.php">
                     <nav class="modal-nav">
-                        <label for="username">
-                            Логин:
-                            <input type="text" name="username" id="username" required pattern="\w" min="5" max="30" oninput="setCustomValidity('Логин должен содержать не менее 5 символов и не более 30-ти.')">
-                        </label>
-                        <label for="password">
-                            Пароль:
-                            <input type="text" name="password" id="password" required pattern="\w" min="5" max="30" oninput="setCustomValidity('Пароль должен содержать не менее 5 символов и не более 30-ти.')">
-                        </label>
-                        <button type="submit">Авторизоваться</button>
+                        <div class="modal-inputs">
+                            <label for="username">Логин:</label>
+                            <input type="text" name="username" id="username" required pattern="\w" min="5" max="30"
+                            oninput="setCustomValidity('Логин должен содержать латинские буквы, цифры и/или символы, их дожно быть не менее 5 символов и не более 30-ти.')">
+                        </div>
+                        <div class="modal-inputs">
+                            <label for="password">Пароль:</label>
+                            <input type="text" name="password" id="password" required pattern="\w" min="5" max="30"
+                            oninput="setCustomValidity('Логин должен содержать латинские буквы, цифры и/или символы, их дожно быть не менее 5 символов и не более 30-ти.')">
+                        </div>
+                        <button type="submit">Войти</button>
                     </nav>
                 </form>
             </div>
             <div class="modal-footer">
-                <a href="views/lk/registration.php">Нет аккаунта? - Зарегистрируйтесь!</a>
+                <a href="../../views/lk/registration.php">Нет аккаунта? - Зарегистрируйтесь</a>
             </div>
         </div>
     </div>

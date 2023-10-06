@@ -10,11 +10,9 @@
                         <h1>Корзина</h1>
                     </div>
                     <div class="info subtext">
-                        </div>
-                            <div class="">
-                            <button>Удалить</button>
-                        </div>
+                        
                     </div>
+                    <button>Удалить</button>
                 </div>
             </div>
         </nav>

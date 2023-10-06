@@ -1,4 +1,4 @@
-<?php include('views/layout/header.php'); ?>
+<?php include('../../views/layout/header.php'); ?>
 
 <body>
     <section class="main-content">
