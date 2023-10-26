@@ -53,12 +53,12 @@
                         <div class="modal-inputs">
                             <label for="username">Логин:</label>
                             <input type="text" name="username" id="username" required pattern="\w" min="5" max="30"
-                            oninput="setCustomValidity('Логин должен содержать латинские буквы, цифры и/или символы, их дожно быть не менее 5 символов и не более 30-ти.')">
+                                oninput="setCustomValidity('Логин должен содержать латинские буквы, цифры и/или символы, их дожно быть не менее 5 символов и не более 30-ти.')">
                         </div>
                         <div class="modal-inputs">
                             <label for="password">Пароль:</label>
                             <input type="text" name="password" id="password" required pattern="\w" min="5" max="30"
-                            oninput="setCustomValidity('Логин должен содержать латинские буквы, цифры и/или символы, их дожно быть не менее 5 символов и не более 30-ти.')">
+                                oninput="setCustomValidity('Логин должен содержать латинские буквы, цифры и/или символы, их дожно быть не менее 5 символов и не более 30-ти.')">
                         </div>
                         <button type="submit">Войти</button>
                     </nav>
