@@ -1,0 +1,67 @@
+CREATE TABLE IF NOT EXISTS `clients` 
+(
+        clientID int(25) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+        first_name varchar(30) NOT NULL,
+        last_name varchar(30) NOT NULL,
+        father_name varchar(30) NULL,
+        birth_date date NOT NULL,
+        passport int(10) NOT NULL,
+        phone_number varchar(12) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS `employee`
+(
+        employeeID int(25) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+        first_name varchar(30) NOT NULL,
+        last_name varchar(30) NOT NULL,
+        father_name varchar(30) NULL,
+        username varchar(30) NOT NULL,
+        password varchar(30) NOT NULL,
+        birth_date date NOT NULL,
+        passport int(10) NOT NULL,
+        phone_number varchar(12) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS `products`
+(
+    	productID int(25) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+        name varchar(50) UNIQUE NOT NULL,
+		count int(10) NOT NULL,
+		category_id int(25) NOT NULL,
+        price int(15) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS `categories`
+(
+    	categoryID int(25) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+        name varchar(50) UNIQUE NOT NULL,
+    	products_id int(25) NOT NULL,
+    	FOREIGN KEY(products_id) REFERENCES products (productID)
+);
+
+CREATE TABLE IF NOT EXISTS `users`
+(
+        userID int(25) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+        username varchar(30) UNIQUE NOT NULL,
+        password varchar(30) NOT NULL,
+        avatar varchar(30) NOT NULL,
+        clients_id int(25) NULL,
+        FOREIGN KEY(clients_id) REFERENCES clients (clientID)
+);
+
+CREATE TABLE IF NOT EXISTS `roles`
+(
+	roleID int(25) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+	name varchar(10) UNIQUE NOT NULL,
+	employee_id int(25) NOT NULL,
+        FOREIGN KEY(employee_id) REFERENCES employee (employeeID)
+);
+
+CREATE TABLE IF NOT EXISTS `orders`
+(
+	orderID int(25) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+	products_id int(25) NOT NULL,
+	clients_id int(25) NOT NULL,
+	FOREIGN KEY(products_id) REFERENCES products (productID),
+	FOREIGN KEY(clients_id) REFERENCES clients (clientID)
+)
