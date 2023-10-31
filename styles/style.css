@@ -14,7 +14,7 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-}
+}s
 
 html,
 body {
@@ -118,10 +118,9 @@ a {
 
 .footer {
     background: var(--footer-color);
-    height: 4rem;
+    min-height: 4rem;
     text-align: center;
-    align-content: center;
-    padding-top: 1rem;
+    padding-top: 1.6rem;
     color: var(--text-color);
     font-family: Jost, sans-serif;
     font-size: 1rem;
@@ -130,7 +129,7 @@ a {
     line-height: normal;
 }
 
-/* ----------модальное-окно------------------- */
+/* ----------модальное-окно-и-регистрация/авторизация------------ */
 
 .modal {
     position: fixed;
@@ -161,15 +160,14 @@ a {
     margin: 0.625rem;
 }
 
-@media (min-width: 36rem) {
-    .modal-dialog {
+@media (min-width: 576px) {
+    .modal-dialog{
         max-width: 25rem;
         margin: 1.875rem auto;
     }
 }
 
-.modal-content {
-    position: relative;
+.modal-content, .card-authreg-section {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -187,14 +185,18 @@ a {
     outline: 0;
 }
 
-@media (min-width: 48rem) {
+.modal-content{
+    position: relative;
+}
+
+@media (min-width: 768px) {
     .modal-content {
         -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     }
 }
 
-.modal-header {
+.modal-header,.card-authreg-header{
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -221,7 +223,7 @@ a {
     font-family: Jost, sans-serif;
 }
 
-.modal-body {
+.modal-body, .card-authreg-body{
     position: relative;
     -webkit-box-flex: 1;
     -webkit-flex: 1 1 auto;
@@ -249,9 +251,9 @@ a {
     flex-direction: column;
 }
 
-.modal-nav input {
+.modal-nav input, .card-authreg-nav input {
     border: transparent;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(0, 0, 0, 0.23);
     border-radius: 1rem;
     padding-left: 1rem;
     margin-top: 0.5rem;
@@ -264,29 +266,41 @@ a {
     margin-bottom: 1rem;
 }
 
-.modal-nav input:focus {
+.modal-nav input:focus, .card-authreg-nav input:focus {
     outline-offset: 0px;
     outline: none;
-    box-shadow:0 3px 6px rgba(var(--text-color), 0.5), 0 3px 6px rgba(var(--text-color), 0.5);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    transform: scale(105%);
 }
 
-.modal button {
+.modal button, .card-authreg-body button {
     padding: 0.5rem 0.75rem;
     background: transparent;
     border: transparent;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    border-radius: 0.4rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(0, 0, 0, 0.23);
+    border-radius: 0.8rem;
     font-size: 1rem;
     color: var(--text-color);
     margin-top: 1rem;
-    transition: all .1s ease-in;
+    transition: all 0.05s ease-in;
 }
 
-.modal button:hover {
-    border-radius: 0.8rem;
+.card-authreg-body button {
+    font-size: 1.25rem;
+    padding: 0.75rem 1rem;
 }
 
-.modal-footer {
+.modal button:hover, .card-authreg-body button:hover{
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    transform: scale(105%);
+}
+
+.modal button:active, .card-authreg-body button:active{
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    transform: scale(115%);
+}
+
+.modal-footer, .card-authreg-footer  {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -301,6 +315,18 @@ a {
     justify-content: center;
     padding: .9375rem;
     border-top: 0.0625rem solid var(--text-color);
+}
+
+.modal-footer a, .card-authreg-footer a{
+    transition: all .1s;
+}
+
+.card-authreg-footer a{
+    transform: scale(110%);
+}
+
+.modal-footer a:hover, .card-authreg-footer a:hover{
+    transform: scale(120%);
 }
 
 .close {
@@ -502,46 +528,10 @@ a {
 
 /*-------------------Reg/Auth----------------------*/
 
-.card-authreg-section {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    background-color: #fff;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-    border-radius: 2rem;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    outline: 0;
-}
-
-@media (min-width: 48rem) {
-    .card-authreg-section {
-        -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    }
-}
-
-.card-authreg-header {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: justify;
+.card-authreg-header{
     -webkit-justify-content: center;
     -ms-flex-pack: justify;
     justify-content: center;
-    padding: .9375rem;
-    border-bottom: 0.0625rem solid var(--text-color);
 }
 
 .card-authreg-title {
@@ -555,13 +545,6 @@ a {
 }
 
 .card-authreg-body {
-    position: relative;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1 1 auto;
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
-    padding: 1.5rem;
-    overflow: auto;
     min-width: 35rem;
     font-size: 1.5rem;
 }
@@ -579,8 +562,6 @@ a {
 }
 
 .card-authreg-nav input {
-    border: 0.1rem solid var(--text-color);
-    background-color: transparent;
     outline: none;
     font-size: 1.5rem;
     max-width: 25rem;
@@ -591,45 +572,6 @@ a {
 .card-authreg-nav input,
 label {
     color: var(--text-color);
-}
-
-
-.card-authreg-nav input:focus {
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    outline-offset: 0px;
-    outline: none;
-    border-radius: 0.1825rem;
-}
-
-.card-authreg-nav button {
-    padding: 0.5rem 0.75rem;
-    background: transparent;
-    border: 0.0625rem solid var(--text-color);
-    border-radius: 0.4rem;
-    font-size: 1.5rem;
-    color: var(--text-color);
-    margin: 1rem 0;
-}
-
-.card-authreg-nav button:hover {
-    font-weight: bold;
-}
-
-.card-authreg-footer {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: center;
-    padding: 0.9375rem;
-    border-top: 0.0625rem solid var(--text-color);
 }
 
 /*----------------------LK-------------------------*/
@@ -667,10 +609,10 @@ label {
     flex-wrap: wrap;
     justify-content: center;
     gap: 2.5rem;
+    align-items: center;
 }
 
 .user>h1 {
-    margin-top: 3.69rem;
     color: var(--text-color);
     font-family: Jost, sans-serif;
     font-size: 3rem;
@@ -692,8 +634,9 @@ label {
 }
 
 .avatar-icon-lk {
-    max-width: 9.375rem;
-    max-height: 9.375rem;
+    max-width: 8.375rem;
+    max-height: auto;
+    filter: hue-rotate(180deg) brightness(125%);
 }
 
 /* ---------------------Bin----------------------- */

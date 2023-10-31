@@ -5,7 +5,6 @@
         <nav class="main-content-nav">
             <h1>Kaтeгopии товаров</h1>
             <div class="product-categories">
-
                 <a class="carto4ka" href="../views/catalogue/catalogue-index.php">
                     <div class="gpu">
                         <p class="subtext-cards">Видеокарты</p>
